@@ -3,13 +3,20 @@ import { styled } from "@mui/system";
 
 const StyledWrapper = styled(Stack)(({ theme }) => ({}));
 
-const TitleSubtitle = ({ title, subtitle, text, color }) => {
+const TitleSubtitle = ({ title, subtitle, text, color, center }) => {
 	return (
-		<StyledWrapper spacing={1.5}>
+		<StyledWrapper
+			spacing={1.5}
+			direction="column"
+			alignItems={ center ? "center" : "flex-start" }
+		>
 			<Typography
 				variant="h4"
 				color="text.primary"
-				sx={{ textTransform: "uppercase", color: color ? color: "inherit" }}
+				sx={{
+					textTransform: "uppercase",
+					color: color ? color : "inherit",
+				}}
 			>
 				{title}
 			</Typography>
@@ -18,11 +25,17 @@ const TitleSubtitle = ({ title, subtitle, text, color }) => {
 				{subtitle ? subtitle : ""}
 			</Typography>
 
-			{text ? text.map((p, i) => (
-				<Typography variant="body1" color="text.secondary" key={i}>
-					{p}
-				</Typography>
-			)) : ""}
+			{text
+				? text.map((p, i) => (
+						<Typography
+							variant="body1"
+							color="text.secondary"
+							key={i}
+						>
+							{p}
+						</Typography>
+				  ))
+				: ""}
 		</StyledWrapper>
 	);
 };
