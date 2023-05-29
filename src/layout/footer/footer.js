@@ -1,8 +1,6 @@
 import { useTheme } from "@emotion/react";
 import {
 	Box,
-	Button,
-	Container,
 	Grid,
 	Stack,
 	Typography,
@@ -32,9 +30,8 @@ const StyledGridImage = styled(Grid)(({ theme }) => ({
 
 
 const StyledGridItems = styled(Grid)(({ theme }) => ({
-	'&:not(:last-child)': {
-		borderBottom: `1px solid white`,
-	},
+	width: "100%",
+	overflow: "hidden"
 }));
 
 const Footer = () => {
@@ -57,7 +54,7 @@ const Footer = () => {
 
 				<StyledGridItems item xs={12} sm={12} md={12} lg={5} xl={5} >
 					<Stack direction="column" spacing={3} >
-						<Typography variant="h2" >
+						<Typography variant="h2" sx={{ml:3}}>
 							Contact{" "}
 							<span style={{ color: theme.palette.primary.main }}>
 								Us
