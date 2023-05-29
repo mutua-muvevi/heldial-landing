@@ -1,230 +1,97 @@
-import { Box, Button, Container, Grid, Stack, Typography, Zoom } from "@mui/material";
+import { useTheme } from "@emotion/react";
+import {
+	Box,
+	Button,
+	Container,
+	Grid,
+	Stack,
+	Typography,
+	Zoom,
+} from "@mui/material";
 import { styled } from "@mui/system";
+import { footerInfo } from "./info";
 
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
-
-import { BsTelephoneFill } from "react-icons/bs";
-import { FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
-import TextFieldWrapper from "../../components/formui/textfield/textfield";
-
-const imageUrl = "https://res.cloudinary.com/dqweh6zte/image/upload/v1679652035/skydive%20rhino/images/IMG_20230224_180023_967_h6orb9.jpg"
+const imageUrl = require("../../assets/images/design.jpg");
 
 const StyledFooter = styled(Box)(({ theme }) => ({
-	minHeight: "60vh",
-	background: `linear-gradient(to bottom, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),url(${imageUrl})`,
-	backgroundPosition: "top",
-	backgroundAttachment: "fixed",
+	backgroundColor: "#000000",
+	color: "#ffffff",
+}));
+
+const StyledGrid = styled(Grid)(({ theme }) => ({
+	paddingTop: "50px",
+	paddingBottom: "50px",
+}));
+
+const StyledGridImage = styled(Grid)(({ theme }) => ({
+	height: "60vh",
+	backgroundImage: `url(${imageUrl})`,
+	backgroundPosition: "center",
 	backgroundSize: "cover",
-	backgroundColor: "rgba(0, 0, 0, 0.86)",
-	color: "#fff",
-	paddingTop: "30px",
-	paddingBottom: "30px",
 }));
 
-const StyledContainer = styled(Container)(({ theme }) => ({
 
+const StyledGridItems = styled(Grid)(({ theme }) => ({
+	'&:not(:last-child)': {
+		borderBottom: `1px solid white`,
+	},
 }));
-
-const StyledfooterStack = styled(Stack)(({ theme }) => ({
-	minHeight: "60vh",
-}));
-
-const StyledFooterHeader = styled(Box)(({theme}) => ({
-	display: "flex",
-	flexDirection: "column",
-	alignItems:"left",
-
-}));
-
-const StyledButton = styled(Button)(({theme}) => ({
-	paddingTop: "15px",
-	paddingBottom: "15px"
-}))
-
-const styledIcons={
-	fontSize: "40px"
-}
-
-const StyledGridContainer = styled(Grid)(({ theme }) => ({
-	
-}))
-
-const StyledGridItem = styled(Grid)(({ theme }) => ({
-
-}))
-
-const StyledStack = styled(Stack)(({ theme }) => ({
-}))
-
-const footerContent = [
-
-	{
-		icon: <BsTelephoneFill style={styledIcons}/>,
-		title: "Call us",
-		tel: [
-			"Office landline: +254 700 000 000",
-			"Office landline 2: +254 700 000 000",
-		],
-	},
-	{
-		icon: <FaMapMarkerAlt style={styledIcons}/>,
-		title: "Our location",
-		location: "Nairobi City, Kenya"
-	},
-	{
-		icon: <FaEnvelope style={styledIcons}/>,
-		title: "Send us an email",
-		emails: [
-			"emailOne@mail.com",
-			"emailTwo@mail.com",
-			"emailThree@mail.com",
-		],
-	},
-]
-
-const newsLetterForm = [
-	{
-		type: "text",
-		label: "Name",
-		name:"name",
-	},
-	{
-		type: "email",
-		label: "Email",
-		name: "email",
-		required: true
-	},
-]
-const INITIAL_FORM_STATE = {
-	name: "",
-	email: "",
-}
-
-const FORM_VALIDATION = Yup.object().shape({
-	name: Yup.string().min(4, 'Minimum characters required is 4'),
-	email: Yup.string().email("Please add a valid email").required("Please add an email"),
-})
-
 
 const Footer = () => {
-
-	const submitEmail = () => {
-
-	}
+	const theme = useTheme();
 
 	return (
 		<StyledFooter>
-			<StyledContainer maxWidth="xl">
-				<StyledfooterStack
-					direction="column"
-					justifyContent="left"
-					spacing={3}
-					textAlign="left"
-				>
-					<StyledFooterHeader>
-						<Typography variant="h4">
-							Join our Newsletter today
+			<StyledGrid container spacing={3}>
+				<StyledGridImage item lg={7} xl={7} sx={{
+					display: {
+						xs: "none",
+						sm:"none",
+						md: "none",
+						lg: "block",
+						xl: "block"
+					}
+				}}>
+
+				</StyledGridImage>
+
+				<StyledGridItems item xs={12} sm={12} md={12} lg={5} xl={5} >
+					<Stack direction="column" spacing={3} >
+						<Typography variant="h2" >
+							Contact{" "}
+							<span style={{ color: theme.palette.primary.main }}>
+								Us
+							</span>
 						</Typography>
-						<Typography variant="subtitle1">
-							Subscribe to our newsletter to get the latest news
-						</Typography>
-					</StyledFooterHeader>
-
-					<Box>
-						<Formik
-							initialValues={{
-								...INITIAL_FORM_STATE
-							}}
-							validationSchema={ FORM_VALIDATION }
-							onSubmit = { submitEmail }
-						>
-							<Form>
-								<Grid container spacing={3}>
-									{
-										newsLetterForm.map((el, i) => (
-											<Grid item xs={12} sm={12} md={12} lg={4} xl={4} key={i}>
-												<TextFieldWrapper
-													color="primary"
-													type={el.type} 
-													name={el.name} 
-													label={el.label}
-													size="medium"
-												/>
-											</Grid>
-										))
-									}
-
-									<Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-										<StyledButton fullWidth type="submit" variant="contained" color="primary" endIcon={<FaPaperPlane/>}>
-											<Typography variant="body1">
-												Join now
-											</Typography>
-										</StyledButton>
-									</Grid>
-								</Grid>
-							</Form>
-						</Formik>
-					</Box>
-
-					<Box>
-						<StyledGridContainer container spacing={3}>
-							{
-								footerContent.map((el, i) => (
-									<StyledGridItem key={i} item xs={12} sm={12} md={12} lg={4} xl={4}>
-										<Zoom in timeout={1000 + (i*1000)}>
-											<StyledStack
-												direction="column"
-												justifyContent="center"
-												alignItems="left"
-												spacing={3}
-											>
-												{
-													el.icon ? el.icon : ""
-												}
+						<>
+							<Grid container spacing={3}>
+								{
+									footerInfo.map((el, i) => (
+										<Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+											<Stack direction="column" spacing={1.5}>
 												<Typography variant="h5">
 													{el.title}
 												</Typography>
-												<Stack
-													direction="column"
-													alignItems="left"
-													spacing={1}
-												>
+												<Stack direction="column">
 													{
-														el.location ? (
-															<Typography variant="body1">
-																{el.location}
+														el.texts.map((txt, index) => (
+															<Typography variant="body1" key={index}>
+																{txt}
 															</Typography>
-														): ""
+														))
 													}
-													{
-														el.emails ? el.emails.map((item, i) => (
-															<Typography variant="body1" key={i}>
-																{item}
-															</Typography>
-														)) : ""
-													}
-													{
-														el.tel ? el.tel.map((item, i) => (
-															<Typography variant="body1" key={i}>
-																{item}
-															</Typography>
-														)) : ""
-													}
-
 												</Stack>
-											</StyledStack>
-										</Zoom>
-										
-									</StyledGridItem>
-								))
-							}
-						</StyledGridContainer>
-					</Box>
-				</StyledfooterStack>
-			</StyledContainer>
+											</Stack>
+										</Grid>
+									))
+								}
+							</Grid>
+						</>
+					</Stack>
+				</StyledGridItems>
+			</StyledGrid>
 		</StyledFooter>
-	)
-}
+	);
+};
 
-export default Footer
+export default Footer;
