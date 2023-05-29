@@ -105,7 +105,7 @@ const Navbar = () => {
 									<StyledButtonStack direction="row" spacing={3}>
 										<StyledButton variant="contained" color="secondary">
 											<Typography variant="subtitle1" >
-												Login
+												Request a Quote
 											</Typography>
 										</StyledButton>
 									</StyledButtonStack>

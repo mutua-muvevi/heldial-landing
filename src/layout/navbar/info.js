@@ -9,6 +9,14 @@ export const menuItems = [
 		path: "/landing/about"
 	},
 	{
+		label: "Service",
+		path: "/landing/service"
+	},
+	{
+		label: "Project",
+		path: "/landing/project"
+	},
+	{
 		label: "Contact",
 		path: "/landing/contact"
 	},
@@ -23,6 +31,14 @@ export const drawerMenuItems = {
 		{
 			label: "About",
 			path: "/landing/about"
+		},
+		{
+			label: "Service",
+			path: "/landing/service"
+		},
+		{
+			label: "Project",
+			path: "/landing/project"
 		},
 		{
 			label: "Contact",
