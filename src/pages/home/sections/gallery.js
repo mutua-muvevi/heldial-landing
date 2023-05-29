@@ -1,10 +1,12 @@
 import {
 	Box,
+	Button,
 	Card,
 	CardActionArea,
 	CardMedia,
 	Container,
 	Stack,
+	Typography,
 } from "@mui/material";
 import { styled } from "@mui/system";
 import { useTheme } from "@emotion/react";
@@ -15,6 +17,8 @@ import TitleSubtitle from "../../../layout/titlesubtitle";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
+
 
 const StyledWrapper = styled(Box)(({ theme }) => ({
 	paddingTop: "50px",
@@ -59,6 +63,10 @@ const SlickArrowRight = (props) => {
 const styledLink = {
 	textDecoration: "none",
 	color: "inherit",
+	display: "flex",
+	justifyContent: "center",
+	alignItems:"center",
+	cursor: "pointer"
 };
 
 const Gallery = () => {
@@ -161,6 +169,14 @@ const Gallery = () => {
 							</div>
 						))}
 					</Slider>
+			
+					<Link to="/landing/projects" style={styledLink}>
+						<Button variant="contained" color="primary">
+							<Typography variant="subtitle1">
+								View All Projects
+							</Typography>
+						</Button>
+					</Link>
 				</Stack>
 			</Container>
 		</StyledWrapper>
