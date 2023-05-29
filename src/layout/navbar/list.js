@@ -5,7 +5,7 @@ import { styled } from "@mui/system";
 
 import { drawerMenuItems } from "./info";
 
-const logo = "https://res.cloudinary.com/dqweh6zte/image/upload/v1679650180/skydive%20rhino/images/skydive_rhino_kenya_logo_trnkqy.png"
+import logo from "../../assets/images/logo.webp"
 
 const StyledLogoListItem = styled(List)(({theme}) => ({
 

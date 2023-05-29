@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom';
 
 import SwipeableSideDrawer from './drawer';
 
-const logo = "https://res.cloudinary.com/dqweh6zte/image/upload/v1679650180/skydive%20rhino/images/skydive_rhino_kenya_logo_trnkqy.png"
+import logo from "../../assets/images/logo.webp"
 
 const TopAppBar = styled(AppBar)({
 	zIndex: 3,
@@ -105,7 +105,7 @@ const Navbar = () => {
 									<StyledButtonStack direction="row" spacing={3}>
 										<StyledButton variant="contained" color="secondary">
 											<Typography variant="subtitle1" >
-												Login
+												Request a Quote
 											</Typography>
 										</StyledButton>
 									</StyledButtonStack>
