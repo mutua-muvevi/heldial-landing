@@ -8,7 +8,7 @@ const TitleSubtitle = ({ title, subtitle, text, color, center }) => {
 		<StyledWrapper
 			spacing={1.5}
 			direction="column"
-			alignItems={ center ? "center" : "flex-start" }
+			alignItems={center ? "center" : "flex-start"}
 		>
 			<Typography
 				variant="h4"
@@ -21,7 +21,11 @@ const TitleSubtitle = ({ title, subtitle, text, color, center }) => {
 				{title}
 			</Typography>
 
-			<Typography variant="h3" color="text.primary">
+			<Typography
+				variant="h3"
+				color="text.primary"
+				sx={{ color: color ? color : "inherit" }}
+			>
 				{subtitle ? subtitle : ""}
 			</Typography>
 

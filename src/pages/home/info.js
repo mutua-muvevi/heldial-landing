@@ -47,3 +47,30 @@ export const serviceInfo = [
 		image: imageFour
 	},
 ]
+
+export const galleryInfo = [
+	{
+		title: "Interior Design",
+		text: "Mauris dignissim lacus purus, sed rhoncus risus facilisis eu. Phasellus ullamcorper",
+		link: "",
+		image: imageOne
+	},
+	{
+		title: "Interior Design",
+		text: "Mauris dignissim lacus purus, sed rhoncus risus facilisis eu. Phasellus ullamcorper",
+		link: "",
+		image: imageTwo
+	},
+	{
+		title: "Interior Design",
+		text: "Mauris dignissim lacus purus, sed rhoncus risus facilisis eu. Phasellus ullamcorper",
+		link: "",
+		image: imageThree
+	},
+	{
+		title: "Interior Design",
+		text: "Mauris dignissim lacus purus, sed rhoncus risus facilisis eu. Phasellus ullamcorper",
+		link: "",
+		image: imageFour
+	},
+]
