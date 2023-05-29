@@ -1,12 +1,9 @@
 import { useTheme } from "@emotion/react";
 import {
 	Box,
-	Button,
-	Container,
 	Grid,
 	Stack,
 	Typography,
-	Zoom,
 } from "@mui/material";
 import { styled } from "@mui/system";
 import { footerInfo } from "./info";
@@ -16,6 +13,7 @@ const imageUrl = require("../../assets/images/design.jpg");
 const StyledFooter = styled(Box)(({ theme }) => ({
 	backgroundColor: "#000000",
 	color: "#ffffff",
+	marginTop: "30px"
 }));
 
 const StyledGrid = styled(Grid)(({ theme }) => ({
@@ -32,9 +30,8 @@ const StyledGridImage = styled(Grid)(({ theme }) => ({
 
 
 const StyledGridItems = styled(Grid)(({ theme }) => ({
-	'&:not(:last-child)': {
-		borderBottom: `1px solid white`,
-	},
+	width: "100%",
+	overflow: "hidden"
 }));
 
 const Footer = () => {
@@ -46,7 +43,7 @@ const Footer = () => {
 				<StyledGridImage item lg={7} xl={7} sx={{
 					display: {
 						xs: "none",
-						sm:"none",
+						sm: "none",
 						md: "none",
 						lg: "block",
 						xl: "block"
@@ -57,7 +54,7 @@ const Footer = () => {
 
 				<StyledGridItems item xs={12} sm={12} md={12} lg={5} xl={5} >
 					<Stack direction="column" spacing={3} >
-						<Typography variant="h2" >
+						<Typography variant="h2" sx={{ml:3}}>
 							Contact{" "}
 							<span style={{ color: theme.palette.primary.main }}>
 								Us

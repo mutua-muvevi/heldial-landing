@@ -14,6 +14,7 @@ const logo = "https://res.cloudinary.com/dqweh6zte/image/upload/v1679650180/skyd
 
 const TopAppBar = styled(AppBar)({
 	zIndex: 3,
+	mARGINbOTTOM : "30px"
 });
 
 const StyledContainer = styled(Container)({
