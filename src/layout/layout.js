@@ -1,9 +1,22 @@
-import React from 'react'
+import { Box } from "@mui/material";
+import { styled } from "@mui/system";
+import { Outlet } from "react-router-dom";
 
-const layout = () => {
+import Navbar from "./navbar/navbar";
+import Footer from "./footer/footer";
+
+const StyledWrapper = styled(Box)(({ theme }) => ({
+
+}))
+
+const Layout = () => {
 	return (
-		<div>layout</div>
+		<StyledWrapper>
+			<Navbar/>
+			<Outlet/>
+			<Footer/>
+		</StyledWrapper>
 	)
 }
 
-export default layout
+export default Layout
