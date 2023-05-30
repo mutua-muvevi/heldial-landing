@@ -41,6 +41,10 @@ const Router = () => {
 			]
 		},
 		{
+			path: "/",
+			element: <Navigate to="/landing/home" replace />,
+		},
+		{
 			path: "/404",
 			element: <NotFound/>
 		},
