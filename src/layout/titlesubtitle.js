@@ -33,7 +33,7 @@ const TitleSubtitle = ({ title, subtitle, text, color, center }) => {
 				? text.map((p, i) => (
 						<Typography
 							variant="body1"
-							color="text.secondary"
+							sx={{ color: color ? color : "inherit" }}
 							key={i}
 						>
 							{p}
